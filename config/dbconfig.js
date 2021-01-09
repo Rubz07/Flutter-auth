@@ -1,4 +1,4 @@
 module.exports = {
     secret: 'yoursecret',
-    database: 'mongodb://localhost:27017/integrationsample'
+    database: 'mongodb+srv://test:test@cluster0.bjc2a.mongodb.net/testDB?retryWrites=true&w=majority'
 }
