@@ -12,12 +12,12 @@ var functions = {
                 name: req.body.name,
                 password: req.body.password
             });
-            newUser.save(function (err, newUser) {
+            var user = newUser.save(function (err, newUser) {
                 if (err) {
                     res.json({success: false, msg: 'Failed to save'})
                 }
                 else {
-                    res.json({success: true, msg: 'Successfully saved'})
+                    res.json({success: true, msg: 'Successfully saved',name : user.name,password : user.password})
                 }
             })
         }
