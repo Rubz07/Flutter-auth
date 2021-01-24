@@ -2,7 +2,9 @@ const express = require("express");
 const actions = require("../methods/actions");
 const router = express.Router();
 var User = require("../models/user");
-router.get("/", (req, res) => {});
+router.get("/", (req, res) => {
+  res.send("hello");
+});
 
 router.get("/dashboard", async (req, res) => {
   let users = await User.find({}).select("name");
