@@ -16,7 +16,7 @@ var functions = {
         if (err) {
           res.json({ success: false, msg: "Failed to save" });
         } else {
-          res.json({
+          res.status(200).json({
             success: true,
             msg: "Successfully saved",
             name: newUser.name,
