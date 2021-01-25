@@ -34,24 +34,20 @@ var functions = {
       function (err, user) {
         if (err) throw err;
         if (!user) {
-          res
-            .status(403)
-            .send({
-              success: false,
-              msg: "Authentication Failed, User not found",
-            });
+          res.status(403).send({
+            success: false,
+            msg: "Authentication Failed, User not found",
+          });
         } else {
           user.comparePassword(req.body.password, function (err, isMatch) {
             if (isMatch && !err) {
               var token = jwt.encode(user, config.secret);
-              res.json({ success: true, token: token });
+              res.status(200).json({ success: true, token: token });
             } else {
-              return res
-                .status(403)
-                .send({
-                  success: false,
-                  msg: "Authentication failed, wrong password",
-                });
+              return res.status(403).send({
+                success: false,
+                msg: "Authentication failed, wrong password",
+              });
             }
           });
         }
